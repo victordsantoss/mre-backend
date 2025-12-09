@@ -38,7 +38,7 @@ export class BasePaginationRequestDto {
 
   @ApiPropertyOptional({
     description: 'Parâmetro de Ordenação',
-    example: 'name',
+    example: 'title',
   })
   @IsOptional()
   @IsString()

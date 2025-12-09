@@ -27,7 +27,7 @@ export abstract class BaseRepository<
     return this.repository.find();
   }
 
-  public async findById(id: string): Promise<Entity | null> {
+  public async findById(id: number): Promise<Entity | null> {
     return this.repository.findOne({ where: { id } as any });
   }
 
@@ -36,12 +36,16 @@ export abstract class BaseRepository<
     return this.repository.save(entity);
   }
 
-  public async update(id: string, data: any): Promise<UpdateResult> {
+  public async update(id: number, data: any): Promise<UpdateResult> {
     return this.repository.update(id, data);
   }
 
-  public async delete(id: string): Promise<void> {
+  public async delete(id: number): Promise<void> {
     await this.repository.delete(id);
+  }
+
+  public async softDelete(id: number): Promise<void> {
+    await this.repository.softDelete(id);
   }
 
   public async findOneBy<K extends keyof Entity>(
