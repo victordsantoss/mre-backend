@@ -64,7 +64,7 @@ As credenciais padrão do banco de dados são:
 
 ```bash
 # Rodar seed de exemplos
-npm run seed:examples
+npm run seed:news
 
 # Gerar migration
 npm run migration:generate -- src/database/migrations/MigrationName
