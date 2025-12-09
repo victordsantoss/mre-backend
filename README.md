@@ -116,6 +116,36 @@ npm run start:dev
 - `dotenv`: Gerenciamento de variáveis de ambiente
 - `class-validator` e `class-transformer`: Validação e transformação de dados
 
+## 🧪 Testes
+
+### Comandos de Teste
+
+```bash
+# Executar todos os testes
+npm run test
+
+# Executar testes em modo watch (re-executa ao salvar)
+npm run test:watch
+
+# Executar testes com relatório de cobertura
+npm run test:cov
+
+# Executar testes em modo debug
+npm run test:debug
+
+# Executar testes end-to-end
+npm run test:e2e
+```
+
+### Visualizar Cobertura de Testes
+
+Após executar `npm run test:cov`, um relatório HTML será gerado em:
+```
+coverage/lcov-report/index.html
+```
+
+Abra este arquivo no navegador para visualizar o relatório detalhado de cobertura.
+
 ## 📚 Documentação da API
 
 Acesse a documentação Swagger em: http://localhost:3000/docs
