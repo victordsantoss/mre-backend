@@ -23,7 +23,6 @@
     "migration:revert": "npm run typeorm -- migration:revert -d src/database/data-source.ts",
     "seed:news": "ts-node -r tsconfig-paths/register src/database/scripts/seed-news.ts",
     "format": "prettier --write \"src/**/*.ts\""
-
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -32,6 +31,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^11.2.3",
     "@nestjs/typeorm": "^11.0.0",
+    "axios": "^1.13.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.3",
     "dotenv": "^16.4.7",
