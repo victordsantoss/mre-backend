@@ -1,0 +1,53 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nest_api_mre
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_USERNAME=mre_user
+      - DATABASE_PASSWORD=mre_password
+      - DATABASE_NAME=mre_database
+      - JWT_SECRET=mre_secret
+      - PORT=3000
+    depends_on:
+      database:
+        condition: service_healthy
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - mre_network
+    restart: unless-stopped
+
+  database:
+    image: postgres:15-alpine
+    container_name: postgres_db_mre
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: mre_user
+      POSTGRES_PASSWORD: mre_password
+      POSTGRES_DB: mre_database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mre_network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U mre_user -d mre_database']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  mre_network:
+    driver: bridge

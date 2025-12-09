@@ -15,10 +15,11 @@ export interface IBaseRepository<
   UpdateInput = DeepPartial<Entity>,
 > {
   findAll(): Promise<Entity[]>;
-  findById(id: string): Promise<Entity | null>;
+  findById(id: number): Promise<Entity | null>;
   create(data: CreateInput): Promise<Entity>;
-  update(id: string, data: UpdateInput): Promise<UpdateResult>;
-  delete(id: string): Promise<void>;
+  update(id: number, data: UpdateInput): Promise<UpdateResult>;
+  delete(id: number): Promise<void>;
+  softDelete(id: number): Promise<void>;
   findOneBy<K extends keyof Entity>(
     field: K,
     value: Entity[K],
