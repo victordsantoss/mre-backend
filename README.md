@@ -118,4 +118,4 @@ npm run start:dev
 
 ## 📚 Documentação da API
 
-Acesse a documentação Swagger em: http://localhost:3000/api
+Acesse a documentação Swagger em: http://localhost:3000/docs
